@@ -10,20 +10,23 @@ function Main() {
     //   )
     // }
 
-    const [activePage, setactivePage] = useState("");
+    const [activePage, setaActivePage] = useState("0");
 
     return (
         <>
             {languages.map(el =>
                 <button
                     key={el.id}
-                    onClick={() => { setactivePage(activePage = el.description) }}>
+                    onClick={() => { setaActivePage(el.id - 1) }}>
 
                     {/* contenuto  */}
                     {el.title}
                 </button>)}
 
-            <div className="description">{activePage}</div>
+            <div>
+                <div className="title">{languages[activePage].title}</div>
+                <div className="description">{languages[activePage].description}</div>
+            </div>
         </>
     )
 }
