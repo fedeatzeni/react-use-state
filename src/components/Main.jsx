@@ -12,18 +12,24 @@ function Main() {
 
     const [activePage, setaActivePage] = useState("0");
 
+    let active = false
+
     return (
         <>
-            {languages.map(el =>
-                <button
-                    key={el.id}
-                    onClick={() => { setaActivePage(el.id - 1) }}>
+            <main>
+                {languages.map(el =>
+                    < button className={active && "active"}
+                        key={el.id}
+                        onClick={() => { setaActivePage(el.id - 1) }}>
+                        {active = (activePage === (el.id))}
 
-                    {/* contenuto  */}
-                    {el.title}
-                </button>)}
+                        {/* contenuto  */}
+                        {el.title}
+                    </button >)
+                }
+            </main>
 
-            <div>
+            <div className="info">
                 <div className="title">{languages[activePage].title}</div>
                 <div className="description">{languages[activePage].description}</div>
             </div>
